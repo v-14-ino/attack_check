@@ -1,0 +1,1 @@
+{"metadata": {"target": "scanme.nmap.org", "scan_mode": "test", "scan_duration": "1s", "generated_at": "2026-09-17 10:00:00", "generator": "test", "report_version": "1.0"}, "port_scan": [], "cve_analysis": {"findings": [], "highest_severity": "None", "total_cves": 0}}

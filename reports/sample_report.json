@@ -1,0 +1,22 @@
+{
+  "report_metadata": {
+    "target": "scanme.nmap.org",
+    "generated_at": "2026-09-17 10:00:00",
+    "generator": "Vulnerability Scanner v1.0",
+    "report_version": "1.0"
+  },
+  "scan_info": {
+    "scan_mode": "Full Scan",
+    "scan_duration": "36.32s"
+  },
+  "port_scan": [
+    { "port": 22, "state": "open", "service": "ssh" },
+    { "port": 80, "state": "open", "service": "http" }
+  ],
+  "web_security": {
+    "vulnerabilities": []
+  },
+  "cve_analysis": {
+    "findings": []
+  }
+}
