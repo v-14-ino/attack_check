@@ -1,6 +1,6 @@
 import React from 'react';
-import { Shield, ShieldAlert, Target, Activity, CheckCircle, AlertTriangle, AlertOctagon, Network, Globe, Mail, Database, Terminal, ChevronDown, Key } from 'lucide-react';
-import type { RiskSummary, AttackSurface, PriorityFinding, Recommendation, UploadResponse } from '../services/api';
+import { Shield, Target, Activity, CheckCircle, AlertTriangle, AlertOctagon, Network, Globe, Mail, Database, Terminal, Key } from 'lucide-react';
+import type { UploadResponse } from '../services/api';
 
 interface RiskDashboardProps {
   metadata: UploadResponse;

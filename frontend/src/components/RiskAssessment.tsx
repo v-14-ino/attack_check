@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Activity, ShieldAlert, CheckCircle, Network, Layers, ShieldCheck, Info, AlertOctagon } from 'lucide-react';
+import { Activity, ShieldAlert, CheckCircle, Network, Info, AlertOctagon } from 'lucide-react';
 import type { UploadResponse } from '../services/api';
 
 interface RiskAssessmentProps {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:5001/api';
+const API_BASE_URL = 'http://127.0.0.1:5002/api';
 
 export interface ReportMetadata {
   metadata: {
@@ -195,11 +195,11 @@ export interface UploadResponse extends ReportMetadata {
 }
 
 export const api = {
-  uploadReport: async (file: File): Promise<UploadResponse> => {
+  uploadReport: async (file: File, signal?: AbortSignal): Promise<UploadResponse> => {
     const formData = new FormData();
     formData.append('file', file);
 
-    const response = await axios.post<UploadResponse>(`${API_BASE_URL}/reports/upload`, formData);
+    const response = await axios.post<UploadResponse>(`${API_BASE_URL}/reports/upload`, formData, { signal });
 
     return response.data;
   },

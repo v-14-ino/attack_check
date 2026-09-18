@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShieldAlert, AlertTriangle, Info, Activity, Server, Target } from 'lucide-react';
-import type { ThreatAnalysisData, ThreatEntry } from '../services/api';
+import type { ThreatAnalysisData } from '../services/api';
 
 interface ThreatAnalysisProps {
   threatAnalysis?: ThreatAnalysisData;

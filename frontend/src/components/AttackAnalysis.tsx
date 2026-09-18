@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
-import { Target, Activity, Shield, ShieldAlert, FileSearch, Server, Key, ChevronDown, ChevronUp, AlertCircle, AlertTriangle } from 'lucide-react';
+import { Target, Activity, Shield, FileSearch, Server, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react';
 import type { UploadResponse, AttackAnalysisService } from '../services/api';
 
 interface AttackAnalysisProps {
   metadata: UploadResponse;
 }
-
-const getSeverityColor = (severity: string) => {
-  switch (severity.toLowerCase()) {
-    case 'critical': return 'bg-rose-500 text-rose-100 border-rose-600';
-    case 'high': return 'bg-orange-500 text-orange-100 border-orange-600';
-    case 'medium': return 'bg-amber-500 text-amber-100 border-amber-600';
-    case 'low': return 'bg-blue-500 text-blue-100 border-blue-600';
-    default: return 'bg-slate-700 text-slate-300 border-slate-600';
-  }
-};
 
 const getSeverityBadge = (severity: string) => {
   switch (severity.toLowerCase()) {
