@@ -7,19 +7,22 @@ import { OpenPorts } from '../components/OpenPorts';
 import { AttackAnalysis } from '../components/AttackAnalysis';
 import { RiskAssessment } from '../components/RiskAssessment';
 import { ThreatAnalysis } from '../components/ThreatAnalysis';
+import { AttackSimulation } from '../components/AttackSimulation';
 import { CollapsibleSection } from '../components/CollapsibleSection';
 import { type UploadResponse } from '../services/api';
-import { Shield, Search } from 'lucide-react';
+import { Shield, Search, Terminal } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
   const [metadata, setMetadata] = useState<UploadResponse | null>(null);
   const [showThreatAnalysis, setShowThreatAnalysis] = useState(false);
   const [showRiskAssessment, setShowRiskAssessment] = useState(false);
+  const [showAttackSimulation, setShowAttackSimulation] = useState(false);
 
   const handleUploadSuccess = (data: UploadResponse) => {
     setMetadata(data);
     setShowThreatAnalysis(false);
     setShowRiskAssessment(false);
+    setShowAttackSimulation(false);
   };
 
   return (
@@ -77,6 +80,19 @@ export const Dashboard: React.FC = () => {
               <div className="space-y-6">
                 <RiskDashboard metadata={metadata} />
                 <RiskAssessment metadata={metadata} />
+              </div>
+            </CollapsibleSection>
+
+            <CollapsibleSection
+              title="Attack Simulation"
+              icon={Terminal}
+              isExpanded={showAttackSimulation}
+              onToggle={() => setShowAttackSimulation(!showAttackSimulation)}
+            >
+              <div className="space-y-6">
+                <AttackSimulation 
+                  metadata={metadata} 
+                />
               </div>
             </CollapsibleSection>
 
