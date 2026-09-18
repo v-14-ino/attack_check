@@ -9,20 +9,23 @@ import { RiskAssessment } from '../components/RiskAssessment';
 import { ThreatAnalysis } from '../components/ThreatAnalysis';
 import { AttackSimulation } from '../components/AttackSimulation';
 import { CollapsibleSection } from '../components/CollapsibleSection';
+import { GenerateReport } from '../components/GenerateReport';
 import { type UploadResponse } from '../services/api';
-import { Shield, Search, Terminal } from 'lucide-react';
+import { Shield, Search, Terminal, FileText } from 'lucide-react';
 
 export const Dashboard: React.FC = () => {
   const [metadata, setMetadata] = useState<UploadResponse | null>(null);
   const [showThreatAnalysis, setShowThreatAnalysis] = useState(false);
   const [showRiskAssessment, setShowRiskAssessment] = useState(false);
   const [showAttackSimulation, setShowAttackSimulation] = useState(false);
+  const [showGenerateReport, setShowGenerateReport] = useState(false);
 
   const handleUploadSuccess = (data: UploadResponse) => {
     setMetadata(data);
     setShowThreatAnalysis(false);
     setShowRiskAssessment(false);
     setShowAttackSimulation(false);
+    setShowGenerateReport(false);
   };
 
   return (
@@ -93,6 +96,17 @@ export const Dashboard: React.FC = () => {
                 <AttackSimulation 
                   metadata={metadata} 
                 />
+              </div>
+            </CollapsibleSection>
+
+            <CollapsibleSection
+              title="Generate Report"
+              icon={FileText}
+              isExpanded={showGenerateReport}
+              onToggle={() => setShowGenerateReport(!showGenerateReport)}
+            >
+              <div className="space-y-6">
+                <GenerateReport metadata={metadata} />
               </div>
             </CollapsibleSection>
 
