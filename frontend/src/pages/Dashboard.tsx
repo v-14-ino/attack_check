@@ -49,9 +49,27 @@ export const Dashboard: React.FC = () => {
             </div>
             
             <div className="bg-slate-800/40 rounded-2xl border border-slate-700/50 p-6 shadow-xl">
-              <h1 className="text-2xl font-bold text-white mb-6 text-center tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                REPORT ANALYSIS COMPLETE
-              </h1>
+              <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+                <h1 className="text-2xl font-bold text-white tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 text-center sm:text-left flex-1">
+                  REPORT ANALYSIS COMPLETE
+                </h1>
+                
+                <div className="w-full sm:w-auto relative">
+                  <button
+                    onClick={() => setShowGenerateReport(!showGenerateReport)}
+                    className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-slate-700/50 hover:bg-slate-700 text-slate-300 hover:text-white py-2 px-4 rounded-lg transition-colors border border-slate-600/50 cursor-pointer"
+                  >
+                    <FileText className="h-4 w-4" />
+                    <span className="font-medium text-sm">Generate Report</span>
+                  </button>
+                  
+                  {showGenerateReport && (
+                    <div className="mt-2 w-full sm:absolute sm:right-0 sm:top-full sm:w-[420px] bg-slate-800 rounded-xl border border-slate-700 shadow-2xl p-4 z-50">
+                      <GenerateReport metadata={metadata} />
+                    </div>
+                  )}
+                </div>
+              </div>
               
               <div className="space-y-6">
                 <ReportPreview metadata={metadata} />
@@ -96,17 +114,6 @@ export const Dashboard: React.FC = () => {
                 <AttackSimulation 
                   metadata={metadata} 
                 />
-              </div>
-            </CollapsibleSection>
-
-            <CollapsibleSection
-              title="Generate Report"
-              icon={FileText}
-              isExpanded={showGenerateReport}
-              onToggle={() => setShowGenerateReport(!showGenerateReport)}
-            >
-              <div className="space-y-6">
-                <GenerateReport metadata={metadata} />
               </div>
             </CollapsibleSection>
 
